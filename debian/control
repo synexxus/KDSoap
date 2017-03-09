@@ -1,0 +1,33 @@
+Source: kdsoap
+Section: Miscellaneous
+Priority: optional
+Maintainer: Robert Middleton <rmiddleton@synexxus.com>
+Build-Depends: debhelper (>= 9), qtbase5-dev, qt5-default, python
+Standards-Version: 3.9.5
+Homepage: http://github.com/KDAB/KDSoap
+#Vcs-Git: git://anonscm.debian.org/collab-maint/kdsoap.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/kdsoap.git;a=summary
+
+Package: kdsoap
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A Qt-based client-side and server-side SOAP component
+ KDSoap can be used to create client applications for web services
+ and also provides the means to create web services without the need
+ for any further component such as a dedicated web server.
+
+Package: libkdsoap0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A Qt-based SOAP library
+ KDSoap can be used to create client applications for web services
+ and also provides the means to create web services without the need
+ for any further component such as a dedicated web server.
+
+Package: libkdsoap-dev
+Architecture: all
+Depends: libkdsoap0 (= ${binary:Version})
+Description: A Qt-based SOAP library(development headers)
+ KDSoap can be used to create client applications for web services
+ and also provides the means to create web services without the need
+ for any further component such as a dedicated web server.
