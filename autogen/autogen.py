@@ -95,7 +95,7 @@ def autogen(project, version, subprojects, prefixed, forwardHeaderMap = {}, step
 	includePath = os.path.join( sourceDirectory, "include" )
 	srcPath = os.path.join( sourceDirectory, "src" )
 
-	if subprojects and "generate-cpack" in steps:
+	if subprojects and "generate-forward-headers" in steps:
 		forwardHeaderGenerator = ForwardHeaderGenerator( 
 			copy = True, path = sourceDirectory, includepath = includePath, srcpath = srcPath,
 			project = project, subprojects = subprojects, prefix = installPrefix, prefixed = prefixed,
