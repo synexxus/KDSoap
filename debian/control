@@ -25,7 +25,7 @@ Description: A Qt-based SOAP library
  for any further component such as a dedicated web server.
 
 Package: libkdsoap-dev
-Architecture: all
+Architecture: any
 Depends: libkdsoap0 (= ${binary:Version})
 Description: A Qt-based SOAP library(development headers)
  KDSoap can be used to create client applications for web services
