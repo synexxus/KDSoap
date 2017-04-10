@@ -1,5 +1,5 @@
-kdsoap (1.5.1+0) UNRELEASED; urgency=low
+kdsoap (1.5.1+0) unstable; urgency=low
 
   * Updated the packaging from upstream kdsoap
 
- -- Robert Middleton <rmiddleton@synexxus.com>  Thu, 09 Mar 2017 09:34:51 -0500
+ -- Robert Middleton <robert@robert-desktop>  Mon, 10 Apr 2017 17:27:01 -0400
