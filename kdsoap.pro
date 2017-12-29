@@ -27,35 +27,30 @@ module_src.target = module-src
 module_src.depends = module_kdwsdl2cpp
 module_testtools.subdir = testtools
 module_testtools.depends = module_src
-module_include.subdir = include
-module_include.depends = module_src
+## What ?
+#module_include.subdir = include
+#module_include.depends = module_src
 module_unittests.subdir = unittests
 module_unittests.depends = module_src module_testtools
 module_examples.subdir = examples
 module_examples.depends = module_src
 
-SUBDIRS += module_src features module_include
+SUBDIRS += module_src features ##module_include
 unittests: SUBDIRS += module_testtools module_unittests
 SUBDIRS += module_examples
 MAJOR_VERSION = 1 ### extract from $$VERSION
 
-unix:DEFAULT_INSTALL_PREFIX = /usr/local/KDAB/KDSoap-$$VERSION
-win32:DEFAULT_INSTALL_PREFIX = "C:\KDAB\KDSoap"-$$VERSION
+DEFAULT_INSTALL_PREFIX = $$INSTALL_PREFIX/usr
+KDSOAP_INSTALL_PREFIX=$$DEFAULT_INSTALL_PREFIX
 
-# for backw. compat. we still allow manual invocation of qmake using PREFIX:
-isEmpty( KDSOAP_INSTALL_PREFIX ): KDSOAP_INSTALL_PREFIX=$$PREFIX
-
-# if still empty we use the default:
-isEmpty( KDSOAP_INSTALL_PREFIX ): KDSOAP_INSTALL_PREFIX=$$DEFAULT_INSTALL_PREFIX
-
-# if the default was either set by configure or set by the line above:
-equals( KDSOAP_INSTALL_PREFIX, $$DEFAULT_INSTALL_PREFIX ){
-    INSTALL_PREFIX=$$DEFAULT_INSTALL_PREFIX
-    unix:message( "No install prefix given, using default of" $$DEFAULT_INSTALL_PREFIX (use configure.sh -prefix DIR to specify))
-    !unix:message( "No install prefix given, using default of" $$DEFAULT_INSTALL_PREFIX (use configure -prefix DIR to specify))
-} else {
-    INSTALL_PREFIX=$$KDSOAP_INSTALL_PREFIX
-}
+## if the default was either set by configure or set by the line above:
+#equals( KDSOAP_INSTALL_PREFIX, $$DEFAULT_INSTALL_PREFIX ){
+#    INSTALL_PREFIX=$$DEFAULT_INSTALL_PREFIX
+#    unix:message( "No install prefix given, using default of" $$DEFAULT_INSTALL_PREFIX (use configure.sh -prefix DIR to specify))
+#    !unix:message( "No install prefix given, using default of" $$DEFAULT_INSTALL_PREFIX (use configure -prefix DIR to specify))
+#} else {
+#    INSTALL_PREFIX=$$KDSOAP_INSTALL_PREFIX
+#}
 
 DEBUG_SUFFIX=""
 VERSION_SUFFIX=""
@@ -99,7 +94,7 @@ win32:test.commands=(cd unittests && $(MAKE) test)
 test.depends = first
 QMAKE_EXTRA_TARGETS += test
 
-INSTALL_DOC_DIR = $$INSTALL_PREFIX/share/doc/KDSoap
+INSTALL_DOC_DIR = $$INSTALL_PREFIX/usr/share/doc/KDSoap
 # install licenses:
 licenses.files = LICENSE.GPL.txt LICENSE.US.txt LICENSE.txt
 licenses.path = $$INSTALL_DOC_DIR
@@ -116,3 +111,5 @@ prifiles.path = $$INSTALL_DOC_DIR
 INSTALLS += prifiles
 
 OTHER_FILES += configure.sh configure.bat kdsoap.pri kdwsdl2cpp.pri doc/CHANGES*
+
+QMAKE_DISTCLEAN += .qmake.cache
