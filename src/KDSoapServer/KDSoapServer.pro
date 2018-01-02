@@ -46,7 +46,7 @@ DEPENDPATH += . $${TOP_SOURCE_DIR}/src
 LIBS        += -L$$DESTDIR -l$$KDSOAPLIB
 
 # installation targets:
-target.path = $$INSTALL_PREFIX/lib$$LIB_SUFFIX
+target.path = $$INSTALL_PREFIX/usr/lib
 INSTALLS += target
 
 # Mac frameworks

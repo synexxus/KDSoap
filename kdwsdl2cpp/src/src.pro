@@ -43,6 +43,6 @@ DEFINES -= QT_NO_CAST_TO_ASCII \
     QT_NO_CAST_FROM_ASCII
 
 #installation targets
-target.path = $$INSTALL_PREFIX/bin
+target.path = $$INSTALL_PREFIX/usr/bin
 
 INSTALLS += target
