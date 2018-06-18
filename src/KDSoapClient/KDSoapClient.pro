@@ -23,8 +23,8 @@ INSTALLHEADERS = KDSoapMessage.h \
     KDSoapSslHandler.h \
     KDDateTime.h \
     KDSoapFaultException.h \
-    KDSoapMessageAddressingProperties.cpp \
-    KDSoapEndpointReference.cpp
+    KDSoapMessageAddressingProperties.h \
+    KDSoapEndpointReference.h
 PRIVATEHEADERS = KDSoapPendingCall_p.h \
     KDSoapPendingCallWatcher_p.h \
     KDSoapClientInterface_p.h \
@@ -59,7 +59,14 @@ DEFINES += KDSOAP_BUILD_KDSOAP_LIB
 
 # installation targets:
 target.path = $$INSTALL_PREFIX/usr/lib
-INSTALLS += target
+
+header.files = $$HEADERS
+headers.CONFIG += no_check_exist
+header.path = $$INSTALL_PREFIX/usr/include/KDSoapClient
+
+INSTALLS += \
+    target \
+    header
 
 # Mac frameworks
 macx:lib_bundle: {

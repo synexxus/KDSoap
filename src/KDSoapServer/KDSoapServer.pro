@@ -47,7 +47,17 @@ LIBS        += -L$$DESTDIR -l$$KDSOAPLIB
 
 # installation targets:
 target.path = $$INSTALL_PREFIX/usr/lib
-INSTALLS += target
+
+header.files = $$HEADERS
+headers.CONFIG += no_check_exist
+header.path = $$INSTALL_PREFIX/usr/include/KDSoapServer/
+
+INSTALLS += \
+    target \
+    header
+
+
+
 
 # Mac frameworks
 macx:lib_bundle: {
